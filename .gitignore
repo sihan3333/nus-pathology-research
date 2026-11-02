@@ -1,0 +1,11 @@
+# 环境、数据、结果不进仓库
+venv/
+.venv*/
+__pycache__/
+outputs*/
+*.jsonl
+*.safetensors
+*.png
+*.svs
+.env
+*token*
