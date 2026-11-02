@@ -6,6 +6,7 @@
 PathoVernier 评测相关脚本，依赖官方 ASPECT 代码（github.com/ChyaZhang/ASPECT），运行时用 `PYTHONPATH` 指向它。
 
 - `qwen_baseline_eval.py`：按 ASPECT 论文附录 D.4 的基线提示词评测原版 Qwen3-VL-8B-Instruct，支持断点续跑；`--full-question` 保留题目里的计数键名说明（论文基线设置）。
+- `diagnose_coverage.py`：只读已有评测结果，按题型统计计数部分的格式问题（非 JSON、漏结尾标签、没写、缺键、被截断），排查基线计数覆盖率偏低的原因。
 - `check_conic_lizard.py`、`check_consep.py`：检查数据集图像重建是否正确。
 
 ## server_setup/
