@@ -12,6 +12,7 @@ PathoVernier 评测相关脚本，依赖官方 ASPECT 代码（github.com/ChyaZh
 ## roi_benchmark/
 用医生阅片轨迹构建 ROI 定位基准。
 - `dwell_heatmap.py`：从一条阅片轨迹算停留热力图（按时间摊到视野面积上，去掉长时间空档），和医生画的框一起叠加到切片缩略图上，并统计停留时间落在框内的比例。
+- `batch_stats.py`：对某个部位的全部轨迹批量统计（有效时长、最大倍数、框面积占比、停留落在框内的比例、富集倍数），输出 CSV，不读切片。
 
 ## server_setup/
 - `3_autodl_setup.sh`、`4_server_setup.sh`：服务器环境搭建脚本（token 不写进脚本，自己登录）。

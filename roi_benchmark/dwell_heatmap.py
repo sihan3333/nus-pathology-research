@@ -124,10 +124,10 @@ def main():
 
     dur = frame_durations(frames, args.cap, args.idle) if frames else np.zeros(0)
     grid = dwell_map(frames, dur, width, height, args.cell)
-    in_box = 0.0
+    covered = np.zeros_like(grid, dtype=bool)  # 框重叠时不重复计算
     for x0, y0, x1, y1, _ in boxes:
-        sub = grid[int(y0 // args.cell):int(np.ceil(y1 / args.cell)), int(x0 // args.cell):int(np.ceil(x1 / args.cell))]
-        in_box += sub.sum()
+        covered[int(y0 // args.cell):int(np.ceil(y1 / args.cell)), int(x0 // args.cell):int(np.ceil(x1 / args.cell))] = True
+    in_box = grid[covered].sum()
     total = grid.sum()
 
     slide_path = find_slide(args.slide_dir, name)
