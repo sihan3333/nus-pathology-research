@@ -36,7 +36,7 @@ from PIL import Image, ImageDraw
 
 def load_trajectory(path):
     meta, frames, annotations = None, [], []
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         for line in f:
             r = json.loads(line)
             if r.get("type") == "meta":

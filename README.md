@@ -14,6 +14,7 @@ PathoVernier 评测相关脚本，依赖官方 ASPECT 代码（github.com/ChyaZh
 - `viewing_heatmap.py`：按 Ghezloo et al., J Imaging Inform Med 2024（及其公开代码 fGhezloo/ROI-Localization-melanoma）从阅片轨迹提取看片重要区域（放大峰、注视 >2 秒、慢速平移），生成时长热力图，并与医生画的框比较（IoU/precision/recall/F1、CC、NSS）。每一步的出处和我们自己的适配写在文件开头。
 - `batch_stats.py`：对某个部位的全部轨迹批量运行上面的分析，输出 CSV 和中位数汇总，不读切片。
 - `dwell_density.py`：按组内渲染图的定义算停留段（连续帧不动、至少 1 秒、帧间隔不超过 1 秒）和停留密度热力图（时长摊到视野面积），并与医生画的框比较；`--check` 打印单条轨迹的停留段用于核对。
+- `local_overlay.py`：在本地把停留密度热力图和医生框叠到缩略图上，按框内热力比例的分位取样检查。
 - `organize_organ.py`：把某个部位的轨迹和报告复制到自己的目录并生成总表，切片原图只记录路径；不覆盖已有的不同文件。
 - 旧版 `dwell_heatmap.py`（把时间按视野面积平摊，无文献依据）已删除，见 git 历史。
 
